@@ -1,31 +1,59 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.11.35303.130
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ЛБ 1 завдання", "ЛБ 1 завдання\ЛБ 1 завдання.vcxproj", "{479B6D33-231C-474A-85B9-B4F079C0277F}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{479B6D33-231C-474A-85B9-B4F079C0277F}.Debug|x64.ActiveCfg = Debug|x64
-		{479B6D33-231C-474A-85B9-B4F079C0277F}.Debug|x64.Build.0 = Debug|x64
-		{479B6D33-231C-474A-85B9-B4F079C0277F}.Debug|x86.ActiveCfg = Debug|Win32
-		{479B6D33-231C-474A-85B9-B4F079C0277F}.Debug|x86.Build.0 = Debug|Win32
-		{479B6D33-231C-474A-85B9-B4F079C0277F}.Release|x64.ActiveCfg = Release|x64
-		{479B6D33-231C-474A-85B9-B4F079C0277F}.Release|x64.Build.0 = Release|x64
-		{479B6D33-231C-474A-85B9-B4F079C0277F}.Release|x86.ActiveCfg = Release|Win32
-		{479B6D33-231C-474A-85B9-B4F079C0277F}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D2B72949-D4DC-4613-853A-138551F62F6C}
-	EndGlobalSection
-EndGlobal
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    setlocale (0, ".1251");
+    // Введення довжини та ширини користувачем
+    int length, width;
+    cout << "Введiть довжину прямокутника (цiле число): ";
+    cin >> length;
+    cout << "Введiть ширину прямокутника (цiле число): ";
+    cin >> width;
+
+    // Обчислення площі та периметра
+    int area = length * width;
+    int perimeter = 2 * (length + width);
+
+    // Перетворення площі та периметра в числа з плаваючою точкою (дробові числа)
+    double area_float = static_cast<double>(area);
+    double perimeter_float = static_cast<double>(perimeter);
+
+    // Обчислення суми, різниці, добутку та частки площі та периметра
+    double sum_result = area_float + perimeter_float;
+    double difference_result = area_float - perimeter_float;
+    double product_result = area_float * perimeter_float;
+    double quotient_result = 0.0;
+    if (perimeter_float != 0) {
+        quotient_result = area_float / perimeter_float;
+    }
+    else {
+        cout << "Дiлення на нуль неможливе" << endl;
+    }
+
+    // Виведення результатів
+    cout << "Площа прямокутника: " << area_float << endl;
+    cout << "Периметр прямокутника: " << perimeter_float << endl;
+    cout << "Сума площi та периметра: " << sum_result << endl;
+    cout << "Різниця площi та периметра: " << difference_result << endl;
+    cout << "Добуток площi та периметра: " << product_result << endl;
+    if (perimeter_float != 0) {
+        cout << "Частка площi та периметра: " << quotient_result << endl;
+    }
+
+    // Виведення адрес змінних у памʼяті
+    cout << "Адреса змiнної length: " << &length << endl;
+    cout << "Адреса змiнної width: " << &width << endl;
+    cout << "Адреса змiнної area: " << &area << endl;
+    cout << "Адреса змiнної perimeter: " << &perimeter << endl;
+    cout << "Адреса змiнної area_float: " << &area_float << endl;
+    cout << "Адреса змiнної perimeter_float: " << &perimeter_float << endl;
+    cout << "Адреса змiнної sum_result: " << &sum_result << endl;
+    cout << "Адреса змiнної difference_result: " << &difference_result << endl;
+    cout << "Адреса змiнної product_result: " << &product_result << endl;
+    if (perimeter_float != 0) {
+        cout << "Адреса змiнної quotient_result: " << &quotient_result << endl;
+    }
+
+    return 0;
+}
